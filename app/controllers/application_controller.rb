@@ -5,10 +5,8 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    #i need to enable sessions
     enable :sessions
-    #i need to set session something
-    set :session_secret, "our_super_secret_session_secret"
+    set :session_secret, "my_session_secret"
     register Sinatra::Flash
   end
 
@@ -20,21 +18,19 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  #helper methods for logged in user
   helpers do
     def current_user
       @current_user ||= User.find_by(id: session[:user_id])
     end
 
-    #returns a boolean
+   
     def logged_in?
-      #current_user will return nil or the entire user object (we want true/false)
       !!current_user
     end
 
     def redirect_if_not_logged_in
       if !logged_in?
-        flash[:errors] = "Must be logged in to view this page!"
+        flash[:errors] = "Please log in to view this page."
         redirect '/login'
       end
     end
@@ -43,6 +39,10 @@ class ApplicationController < Sinatra::Base
       post.user == current_user
     end
 
+    def find_post
+      @post = Post.find(params[:id])
+    end
+    
   end
 
 end

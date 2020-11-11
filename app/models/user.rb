@@ -1,11 +1,8 @@
 class User < ActiveRecord::Base
     has_secure_password
   
-    validates :name, presence: true
-    validates :bio, presence: true
-    validates :image_url, presence: true
-    validates :email, presence: true, uniqueness: true
-  
+    validates :name, :bio, :image_url, :email, presence: true
+    
     has_many :posts
   
   end
