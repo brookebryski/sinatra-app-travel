@@ -5,3 +5,10 @@ Instructions for usage:
 - run bundle install in your console
 - run shotgun
 - open your favorite browser and enter the given local url provided by the shotgun server
+
+Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/brookebryski/sinatra-app-travel. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details. 
+
